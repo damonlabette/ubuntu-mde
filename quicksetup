@@ -1,0 +1,9 @@
+sudo apt-get install curl libplist-utils apt-transport-https
+curl -o microsoft.list https://packages.microsoft.com/config/ubuntu/22.04/prod.list
+sudo mv ./microsoft.list /etc/apt/sources.list.d/microsoft-prod.list
+curl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
+sudo apt-get update
+sudo apt-get install mdatp
+Download linux onboarding package from https://security.microsoft.com > Settings > Endpoints > Onboarding > Linux Server > Local Script > Download onboarding package
+unzip ./Downloads/WindowsDefenderATPOnboardingPackage.zip
+sudo python3 MicrosoftDefenderATPOnboardingLinuxServer.py
